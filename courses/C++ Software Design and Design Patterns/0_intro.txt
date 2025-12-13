@@ -1,0 +1,22 @@
+/*  See https://gameprogrammingpatterns.com/
+
+    Desing pattern:
+        Bluprints (or recipes) for solving common sotware design problems.
+
+        They are not perfect. There are trade-offs and you have to figure out how to apply certain design 
+    patterns in the right places.
+
+
+    - Behavioral Pattern:
+        Allow you to focus on how objets are connected and how they communicate -- simplifying control flow.
+
+        It also have to do how we do something algorithmically and usually making a choice.  
+
+
+    - Creational design pattern:
+        It is concerned with how we create objects
+
+        It is a way to abstract or make sager a way for us to create objects.
+
+
+*/
