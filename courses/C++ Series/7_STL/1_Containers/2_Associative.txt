@@ -1,0 +1,60 @@
+
+Associative containers
+	Associative containers implement sorted data structures (Red-black-tree) that can be quickly 
+searched (O(log n) complexity).
+
+	<set>  
+		set
+		map
+	<map>
+		multiset
+		multimap
+
+
+
+Collection of keys (set/multiset):                  Collection of key–value pairs (map/multimap):
+
+Defined in header <set>                             Defined in header <map>
+template<                                           template< 
+    class Key,                                          class Key,            |	 Elements are stored as key-value pair
+                                                        class T,              |       (std::pair)
+    class Compare = std::less<Key>,                     class Compare = std::less<Key>,
+    class Allocator = std::allocator<Key>               class Allocator = std::allocator<std::pair<const Key, T>>
+> class set/multiset;                               > class map/multimap;
+                                                                                
+
+	- Ordered
+	- Elements are unique by key in std::set and std::map
+	- Elements can be duplicates by key in std::multiset and std::multimap
+	- Useful for collecting elements
+
+	Implemented with a balanced binary tree (red-black tree) that asures:
+	
+
+	set/multiset                                                map/multimat
+
+	Time complexity                                            Time complexity
+                                       
+		Insert		O(log(n))                                  Insert					O(log(n))                   
+				                                       
+		Remove		O(log(n))                                  Access by key			O(log(n))
+		
+		Find		O(log(n))                                  Remove by Key    		O(log(n)) 
+                                  
+                                                               Find/Remove Value		O(log(n))
+
+               [6]                                                   [6|d]                                                 
+             /      \                                              /       \                                    
+         [4]         [6]                                        [4|x]       [9|c]                                   
+        /   \       /                                           /   \       /      
+      [2]   [5]   [7]                                       [2|z]   [5|s]   [7|a]                   
+                                    
+    
+
+std::set/std::map
+
+
+
+
+
+

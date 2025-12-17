@@ -1,0 +1,108 @@
+Container adaptors
+	Container adaptors provide a different interface for sequential containers.
+
+	<stack>
+	<queue>
+		queue
+	 	priority_queue
+ 
+
+std::stack: LIFO:  last-in, first-out
+
+Defined in header <stack>
+template<
+    class T,
+    class Container = std::deque<T>         <--- default
+> class stack;
+
+	          push  pop
+	          (in) (out)
+	           ↓     ↑
+              _________
+              \________\                       push(T)  Add new element
+	          \________\                       pop()    Remove the top element
+	          \________\                       top()    Peeks at the top element
+	          \________\
+	          \________\
+
+
+	Time complexity
+                                       
+		Push		Equal to the Container::push_back                   
+				                                       
+		Pop			Equal to the Container::pop_back
+		
+		top			O(1)
+
+	Adaptors: std::vector 
+	          std::deque 
+	          std::list
+
+
+std::queue: FIFO:  first-in, first-out
+
+Defined in header <queue>
+template<
+    class T,
+    class Container = std::deque<T>
+> class queue;
+
+         (push_back)
+            in
+             ↓
+         \________\                       back()          Peeks at the top element
+         \________\                       front()         Peeks at the first element
+         \________\                       push_back()     
+         \________\                       pop_front()  
+         \________\        
+              ↓   
+             out
+           (pop_front)
+
+
+	Time complexity
+                                       
+		push_back		Equal to the Container::push_back                   
+				                                       
+		pop_front		Equal to the Container::pop_back
+		
+		front			O(1)
+
+		back			O(1)
+
+	Adaptors: std::deque 
+	          std::list
+
+
+std::priority_queue:
+
+Defined in header <queue>
+template<
+    class T,                                 // The type of the stored elements.
+    class Container = std::vector<T>,
+    class Compare = std::less<typename Container::value_type>
+> class priority_queue;
+
+
+     Priority determines which element is firts out.
+
+
+
+	Time complexity
+                                       
+		Push		Logarithmic number of comparison    -> since uses heap 
+		            + complexity of Container::push_back                   
+				                                       
+		Pop			Logarithmic number of comparison
+		            + complexity of Container::pop_back
+		
+		front		O(1)
+
+		top			O(1)
+
+	Adaptors: std::vector 
+	          std::deque
+
+
+
+

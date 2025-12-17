@@ -1,0 +1,50 @@
+
+1. Generate assembly
+
+	> g++ -std=c++20 main.cpp -S
+
+	This will generate a file called main.s with the assimby data
+
+
+See binary symbols
+> nm 
+
+
+
+2. Write effective modern C++
+
+	Use -Weffc++ with g++ to write effective modern C++
+
+	> g++ -std=c++17 -Weffc++ main.cpp -o prog
+
+
+
+
+3. It only runs the preprocessor and outputs the preprocessed source to stdout.
+
+	What -E does
+
+		- Expands #include files
+		- Expands macros
+		- Removes comments
+		- Does not compile or assemble
+		- Prints the result to the terminal unless you redirect it
+
+
+g++ -E main.cpp > main.i
+
+
+4 - Signed / Unsigned comparison and implicit conversions
+
+    Use -Wall flag to prevent this operatoins
+
+    int a = -2;
+    unsigned int b = 1;
+
+    // a (int) is implicitly converted to unsigned int
+    // -2 becomes 4294967294 (modulo 2^32 on a 32-bit unsigned int)
+    if( a > b )
+//      ~~^~~
+// warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]     
+        std::cout << "Sth is wrong here!\n"; // Sth is wrong here!
+

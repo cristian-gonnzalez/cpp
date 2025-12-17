@@ -1,0 +1,57 @@
+
+
+Sequence containers
+
+		Sequence containers implement data structures which can be accessed sequentially.
+
+	<array>
+	<vector>
+	<deque>
+	<forward_list>
+	<list>
+	std::string is a 'pseudo container' if you perefer to think of 
+	it as a specific instance of a sequence container
+
+ 
+
+Associative containers
+	Associative containers implement sorted data structures (Red-black-tree) that can be quickly 
+searched (O(log n) complexity).
+
+	<set>
+		set
+		map
+	<map>
+		multiset
+		multimap
+
+Unordered associative containers
+	Unordered associative containers implement unsorted (hashed) data structures that can be 
+quickly searched (O(1) average, O(n) worst-case complexity).
+
+	<unordered_set>
+		unordered_set
+		unordered_multiset
+	<unordered_map>
+		unordered_map
+		unordered_multimap
+  
+
+Container adaptors
+	Container adaptors provide a different interface for sequential containers.
+
+	<stack>
+	<queue>
+		queue
+	 	priority_queue
+ 
+
+
+
+
+
+
+
+
+
+

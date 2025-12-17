@@ -1,0 +1,3 @@
+To know the execution time, use the `time` command:
+
+    $ time ./prog

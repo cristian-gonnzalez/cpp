@@ -1,0 +1,185 @@
+Sequence containers
+
+	Contiguos containers:
+			<array>
+			<vector>
+			std::string is a 'pseudo container' if you perefer to think of 
+			it as a specific instance of a sequence container
+
+	Non-contiguos containers:
+			<deque>
+			<forward_list>
+			<list>
+	
+Contiguos containers:
+
+std::array:
+==========	
+
+Defined in header <array>
+template<                            
+    class T,              <-- Type    |   The two piece of information we care about of arrays
+    std::size_t N         <-- Size    |   We dont have to deal with this issue of passing the size 
+> struct array; 
+
+	- Fixed-size container: number of element must be know at compile-time, cannot resize
+	- Contiguous block of memory
+	- Stack allocated (thus fast, but we cannot make HUGE allocations)
+	- Random access in constant time O(1)
+	- Fast linear traversal (very cache friendly)
+
+	Time complexity
+
+		Insertion	O(n)   -> Thinking that you have to re-organized
+		Update		O(1)	   ^
+		Delete		O(n)   ----
+
+v [1, 2, 3, 4, 5, 6]
+
+std::vector: (dynamic array)
+===========
+    A better name would be 'dynamic array' meaning that it's a data structure that can re-size.
+    
+    Defined in header <vector>
+
+template<
+    class T,
+    class Allocator = std::allocator<T>  -> There's some sort of allocation 
+> class vector;
+
+	- 'dynamic array' that will resize as needed
+	- Contigous block of memory that is 'heap-allocated'
+	- Random-access in 0(1)
+	- Fast linear traversal (very cache friendly)
+	- Reordering or resizing (reallocate) has a cost of copying 
+	(potentially expensive if elements are big) O(n)
+
+
+	Time complexity
+
+		Insertion		front 	O(n)    ---->    All elements need to be    
+						middle  O(n)    ---->  shifted one place to the right
+						back    O(1)                   ^  ^
+				                                       |  |
+		Delete			front 	O(n)    ---------------   | 
+						middle  O(n)    ------------------
+						back    O(1)
+		
+		Search			index 	O(1)  // random-access   
+						object  O(n)   ------>   Iterates over all elements
+
+v [1, 2, 3, 4, 5, 6]
+
+
+Non-contiguos containers:
+
+std::deque (double-ended queue): 
+===============================
+
+Defined in header <deque>
+template<
+    class T,
+    class Allocator = std::allocator<T>
+> class deque;
+
+
+	- Heap alllocated
+	- Random-access in 0(1)
+	- The implementation is amost a comprimise between a list and a
+	vector.
+		* Can think of it as a double-linked-list with chunks of fixed-arrays
+	- Generally fast linear traversal (very cache friendly)
+	- Resize has a cost but less than a std::vector since we could 
+	copying a chunk instead of the whole data-structure
+
+	Time complexity
+                                       
+		Insertion		head 	O(1)       
+						index   O(n) or O(1)  
+						tail    O(1)                   
+				                                       
+		Delete			head 	O(1)    
+						index   O(n)    
+						back    O(1)
+		
+		Search			index 	O(1)  // random-access   
+						object  O(n)   ------>   Iterates over all elements
+
+      
+	[1, 2] -> [3, 4] -> [5, 6]   
+     ^	   <-        <-     ^
+    head                    tail
+
+
+std::fordward_list: 
+=========
+                           
+ Defined in header <fordward_list>
+
+template<
+    class T,                              ->  We can sort of think of those as 
+    class Allocator = std::allocator<T>    the individual nodes
+> class list;
+
+
+	- More space efficient implemetation of std::list
+		* can only tranverse forward
+	- In practice, slower than a std::vector
+	- Allows for insertion/removal in any position O(1)
+		* Since member-functions uses only iterators
+		but we have a cost O(n) to find the position
+		with non-member function std::avance/std::distance
+	- No random access -- need to iterate
+	- Usually more efficient to sort
+		* pointers exchanged vs copying data in contigoud strucutures
+
+
+	Time complexity
+                                       
+		Insertion		head 	O(1)  |     
+						middle  O(1)  | Since member-functions uses only iterators
+						tail    O(1)  |                
+				                                       
+		Delete			head 	O(1)  |  
+						index   O(1)  | Since member-functions uses only iterators 
+						back    O(1)  |
+ 		
+		Search			object  O(n)  | use of non-member functions
+
+
+			 single-linked-list
+	[1] -> [2] -> [3] -> [4] -> [5] -> [6]   
+     ^	     
+    head                
+
+
+
+std::list: 
+=========
+                           
+ Defined in header <list>
+
+template<
+    class T,                              ->  We can sort of think of those as 
+    class Allocator = std::allocator<T>    the individual nodes
+> class list;
+
+
+	Time complexity
+                                       
+		Insertion		head 	O(1)       
+						middle  O(n)  
+						tail    O(1)                  
+				                                       
+		Delete			head 	O(1)    
+						index   O(n)   
+						back    O(1)  
+ 		
+		Search			index   O(n)  
+		Search			object  O(n)  
+
+
+			 double-linked-list
+	[1] -> [2] -> [3] -> [4] -> [5] -> [6]   
+     ^  <-     <-     <-     <-     <-  ^	     
+    head                               tail               

@@ -1,0 +1,62 @@
+Unordered associative containers
+	Unordered associative containers implement unsorted (hashed) data structures that can be 
+quickly searched (O(1) average, O(n) worst-case complexity).
+
+	<unordered_set>
+		unordered_set
+		unordered_multiset
+	<unordered_map>
+		unordered_map
+		unordered_multimap
+
+		See https://hackingcpp.com/cpp/std/associative_containers.html
+
+Templates:
+---------
+
+Defined in header <unordered_set>					Defined in header <unordered_map>
+template<											template<
+    class Key,										    class Key,               |  Elements stroed in key-value pair
+    												    class T,                 |          (std::pair)
+    class Hash = std::hash<Key>,					    class Hash = std::hash<Key>,
+    class KeyEqual = std::equal_to<Key>,			    class KeyEqual = std::equal_to<Key>,
+    class Allocator = std::allocator<Key>			    class Allocator = std::allocator< std::pair<const Key, T> >
+> class unordered_set/unordered_multiset;			> class unordered_map/unordered_multimap;
+
+
+	- Element are not in order.
+	- Elements are unique by key in std::unordered_set and std::unordered_map
+	- Elements can be duplicates by key in std::unordered_multiset and std::unordered_multimap
+	
+	Implemented with a hash-table that asures:
+	
+
+	set/multiset/map/multimap
+
+	Time complexity                               
+                                       
+		Insert		Avarage: O(1) constant                                    
+				    Worst: O(N)   linear               
+
+		Access		Avarage: O(1)                 
+					Worst: O(N)                           
+
+		Remove		Avarage: O(1)       
+                    Worst: O(N)                           
+
+        Find		Avarage: O(1)                          
+                    Worst: O(N)                            
+
+
+                     set/multiset                              map/multimap
+                     ___________                               ___________ 
+                    |           |                             |           |
+           us  ->   | h(6)      | -> [6]           us  ->     | h(6)      | -> [6|d]
+                    | h(4)=h(2) | -> [4] -> [2]               | h(4)=h(2) | -> [4|x] -> [2|z]
+                    |           |                             |           | 
+                    | h(7)      | -> [7]                      | h(7)      | -> [7|a]
+                    |           |                             |           |
+                    | h(9)=h(5) | -> [9] -> [5]               | h(9)=h(5) | -> [9|c] -> [5|s]
+                    |___________|                             |___________|         
+
+
