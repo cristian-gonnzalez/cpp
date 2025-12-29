@@ -1,5 +1,5 @@
 /** C++ Safety part 1 of n - Language Level Safety
- *  Modern Cpp Series Ep. 233
+ *  Compile-time
  */
 
 #include <iostream>
@@ -19,6 +19,8 @@ Safety in C++ Programming: Lenguage Level Features -- compile-time
     - C++20 addes a few more handy tools that directly require being 
     evaluable or initializable at compile-time.
         - consteval and constinit.
+
+See https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#con5-use-constexpr-for-values-that-can-be-computed-at-compile-time
 
 */
 

@@ -1,5 +1,5 @@
 /** C++ Safety part 1 of n - Language Level Safety
- *  Modern Cpp Series Ep. 233
+ *  Compile-time
  */
 
 #include <iostream>

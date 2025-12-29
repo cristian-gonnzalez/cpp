@@ -6,19 +6,19 @@
 /*
 Safety in C++ Programming:
 
-What can of safety can I buy?
+What kind of safety can I buy?
 
 There are 3 general places where I can apply safety tools. The currency may be to pay some performance
 
     1. Language level
-    1. Library level
-    1. Tooling level
+    2. Library level
+    3. Tooling level
 
  NOTE: There are probably more than 3 places: network, cloud, database, hardware, etc.
 
 C++ Language features for safety
 
-    Features  build into the language standadt to assist us achieve our programming goals
+    Features  built into the language standard to assist us achieve our programming goals
 
         * Compile-time safety:
             const
@@ -35,6 +35,14 @@ C++ Language features for safety
             RAII
             dyanamic_cast vs reinterpret_cast or C-style cast
             thread_local
+
+    And more:
+
+        - Contracts (C++26)
+        - type safety
+        - encapsulation
+        - rule of zero, rule of 3 and rule of 5
+        - static_cast vs C-style cast
 */
 
 int main()

@@ -37,7 +37,7 @@ int main()
         // The destructor is automatically called when we leave scope
         // This idea of leaving scope and having sth automatically happens is really important
         //
-        // ()RAII -Scoped)
+        // (RAII -Scoped)
         
         // Creating this object in the stack
         UDT u1;  // UDT created
