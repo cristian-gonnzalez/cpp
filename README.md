@@ -1,12 +1,11 @@
-# C++ Reference and Explorations
+# C++ Reference
 
-This repository is a personal reference and exploration space for C++, built over
-time through hands-on work with the language in real projects.
+This repository is a personal C++ knowledge base containing reference notes,
+curated examples, experiments, and small projects accumulated from professional
+work, university, and independent study.
 
-It contains small, focused examples, experiments, and notes covering core
-language features, modern C++ idioms, design patterns, and concurrency. Rather
-than being a single cohesive application, the repository is organized by topic so
-each example can be understood in isolation.
+It is not intended as a structured course, but as a practical reference for
+modern C++, concurrency, design patterns, and performance-critical systems.
 
 I use this repository both as a reference and as a place to validate ideas before
 applying them.
@@ -44,11 +43,11 @@ Core data structure implementations, including:
 
 - Binary tree implementations with header/source separation
 
-### `courses/`
+### `reference/`
 
 A structured collection of examples grouped by topic.
 
-#### C++ Series
+#### Language
 
 Coverage from fundamental to advanced topics, including:
 
@@ -107,7 +106,8 @@ g++ -std=c++20 example.cpp -o example
 ```
 (Some examples may require additional compiler flags or libraries.)
 
-For quick experimentation and inspection of generated assembly, I often use
-Compiler Explorer (Godbolt).
+For quick experimentation, I often use
+[Compiler Explorer (Godbolt)](https://godbolt.org).
+
 
 ---
