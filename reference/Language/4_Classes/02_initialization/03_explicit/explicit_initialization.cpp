@@ -1,5 +1,5 @@
-/** C++ Safety part 1 of n - Language Level Safety
- *  Modern Cpp Series Ep. 233
+/** C++ Safety - Language Level Safety
+ *  Modern Cpp
  */
 
 #include <iostream>
@@ -134,6 +134,9 @@ int main()
         //          ❌ but explicit forbids implicit conversion
         //          ❌ no copy constructor
         //          ❌ no operator=
+
+        // Direct initialization is allowed
+        Point p4{1.0f, 2.0f};
     }
         
     return 0;
